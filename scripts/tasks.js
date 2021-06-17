@@ -1,5 +1,5 @@
 function showMessage() {
-    alert( 'This script will show the answers to the tasks from https://projecteuler.net/archives.' )
+    alert("This script will show the answers to the tasks from https://projecteuler.net/archives.");
 }
 
 /**
@@ -10,31 +10,31 @@ function showMessage() {
  * @return {number} The sum of the multiples of the dividers up to the passed maximum.
  */
 function calculateSumOfMultiplesUpTo(max, dividers) {
-    var sum = 0
+    var sum = 0;
 
     for (var i = 0; i < max; i++) {
         for (var j = 0; j < dividers.length; j++) {
             if (i % dividers[j] === 0) {
-                sum += i
+                sum += i;
                 // Break, because we don't want to count the current number again.
                 break;
             }
         }
     }
 
-    var output = "The sum of multiples of "
+    var output = "The sum of multiples of ";
     for (var i = 0; i < dividers.length; i++) {
-        output += dividers[i]
+        output += dividers[i];
         if (i !== dividers.length - 1) {
-            output += ", "
+            output += ", ";
         } else {
-            output += " "
+            output += " ";
         }
     }
-    output += "up to " + max + " is " + sum
-    alert(output)
+    output += "up to " + max + " is " + sum;
+    alert(output);
 
-    return sum
+    return sum;
 }
 
 /**
@@ -44,82 +44,52 @@ function calculateSumOfMultiplesUpTo(max, dividers) {
  * @return {number} The sum of the number of the Fibonacci sequence up to the passed maximum.
  */
 function calculateSumOfEvenFibonacciNumbersUpTo(max) {
-    var sum = 0
+    var sum = 0;
 
-    var f1 = 1
-    var f2 = 1
+    var f1 = 1;
+    var f2 = 1;
 
     while (f1 + f2 < max) {
-        var currentNumber = f1 + f2
-        f1 = f2
-        f2 = currentNumber
+        var currentNumber = f1 + f2;
+        f1 = f2;
+        f2 = currentNumber;
         //alert(currentNumber)
         if (currentNumber % 2 === 0) {
-            sum += currentNumber
+            sum += currentNumber;
         }
     }
 
-    var output = "The sum of the numbers in the Fibonacci sequence up to " + max + " is " + sum
-    alert(output)
+    var output = "The sum of the numbers in the Fibonacci sequence up to " + max + " is " + sum;
+    alert(output);
 
-    return sum
+    return sum;
 }
 
 /**
- * Returns sieve of Eratosthenes from the passed minimum number including it.
+ * Returns the largest prime factor of the passed number.
  *
- * @param {number} from The minimum number (including it).
- * @return {Array.<number>} The sieve of Eratosthenes from the passed minimum number.
+ * @param {number} number The number you want to find the largest prime factor of.
+ * @return {number} The largest prime factor of the passed number.
  */
-function getSieveOfEratosthenesUpTo(from) {
-    var maxArrayLength = Math.pow(2, 32) - 1
-    var sieveOfEratosthenes = new Array(maxArrayLength).fill(true);
-
-    var min = Math.min(2, from)
-    var max = min + maxArrayLength
-
-    for (var i = min; i < maxArrayLength + min; i++) {
-        if (sieveOfEratosthenes[i - min] === true) {
-            for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
-                sieveOfEratosthenes[j - min] = false
-            }
-        }
-    }
-
-    var output = ""
-    for (var i = 0; i < max; i++) {
-        if (sieveOfEratosthenes[i] === true) {
-            output += i + ", "
-        }
-    }
-
-    alert(output)
-
-    alert("Here 2")
-
-    return sieveOfEratosthenes
-}
-
 function findLargestPrimeFactorOfNumber(number) {
-    alert("Here 0 " + number)
-    var sieveOfEratosthenes = getSieveOfEratosthenesUpTo(Math.round((number / 2) + 1))
+    var backupOfNumber = number;
+    var factor = 2;
 
-    for (var i = sieveOfEratosthenes.length - 1; i >= 0; i--) {
-        if (sieveOfEratosthenes[i] === true) {
-            if (number % i === 0) {
-                var output = "The largest prime factor of " + number + " is " + i + "."
-                alert(output)
-                return i
-            }
+    while (number > 1) {
+        if(number % factor === 0){
+            number /= factor;
+        } else {
+            factor++;
         }
     }
 
-    alert("Error.")
-    throw "Error trying to find a prime factor."
+    var output = "The largest prime factor of " + backupOfNumber + " is " + factor + ".";
+    alert(output);
+
+    return factor;
 }
 
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000)
-getSieveOfEratosthenesUpTo(0)
-//findLargestPrimeFactorOfNumber(600851475143)
+findLargestPrimeFactorOfNumber(600851475143)
