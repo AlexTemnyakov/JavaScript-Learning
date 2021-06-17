@@ -65,6 +65,61 @@ function calculateSumOfEvenFibonacciNumbersUpTo(max) {
     return sum
 }
 
-showMessage();
-calculateSumOfMultiplesUpTo(1000, [3, 5]);
-calculateSumOfEvenFibonacciNumbersUpTo(4000000)
+/**
+ * Returns sieve of Eratosthenes from the passed minimum number including it.
+ *
+ * @param {number} from The minimum number (including it).
+ * @return {Array.<number>} The sieve of Eratosthenes from the passed minimum number.
+ */
+function getSieveOfEratosthenesUpTo(from) {
+    var maxArrayLength = Math.pow(2, 32) - 1
+    var sieveOfEratosthenes = new Array(maxArrayLength).fill(true);
+
+    var min = Math.min(2, from)
+    var max = min + maxArrayLength
+
+    for (var i = min; i < maxArrayLength + min; i++) {
+        if (sieveOfEratosthenes[i - min] === true) {
+            for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
+                sieveOfEratosthenes[j - min] = false
+            }
+        }
+    }
+
+    var output = ""
+    for (var i = 0; i < max; i++) {
+        if (sieveOfEratosthenes[i] === true) {
+            output += i + ", "
+        }
+    }
+
+    alert(output)
+
+    alert("Here 2")
+
+    return sieveOfEratosthenes
+}
+
+function findLargestPrimeFactorOfNumber(number) {
+    alert("Here 0 " + number)
+    var sieveOfEratosthenes = getSieveOfEratosthenesUpTo(Math.round((number / 2) + 1))
+
+    for (var i = sieveOfEratosthenes.length - 1; i >= 0; i--) {
+        if (sieveOfEratosthenes[i] === true) {
+            if (number % i === 0) {
+                var output = "The largest prime factor of " + number + " is " + i + "."
+                alert(output)
+                return i
+            }
+        }
+    }
+
+    alert("Error.")
+    throw "Error trying to find a prime factor."
+}
+
+//showMessage();
+//calculateSumOfMultiplesUpTo(1000, [3, 5]);
+//calculateSumOfEvenFibonacciNumbersUpTo(4000000)
+getSieveOfEratosthenesUpTo(0)
+//findLargestPrimeFactorOfNumber(600851475143)
