@@ -254,6 +254,30 @@ function findLargestProductInSeries(series, sequenceLength) {
     return largestProduct;
 }
 
+/**
+ * Finds the Pythagorean triangles the sides of which matches a + b + c === sum.
+ *
+ * @param {number} sum The required sum of the sides of the triangles.
+ * @return {number} The product of the side of the found triangle.
+ */
+function findSpecialPythagoreanTriplet(sum) {
+    for (var a = 1; a <= (sum - 1 - 1); a++) {
+        for (var b = a + 1; b <= (sum - a - 1); b++) {
+            for (var c = b + 1; c <= (sum - a - b); c++) {
+                var isPythagoreanTriangle = function() {
+                    return ((a * a) + (b * b)) === (c * c);
+                } ();
+                if (isPythagoreanTriangle && (a + b + c) === sum) {
+                    var output = "The Pythagorean triplet with the sum that is equal to " + sum + " is " + a + ", " + b + ", and " + c + ".\n";
+                    output += "The product of the side lengths is " + (a * b * c) + ".";
+                    alert(output);
+                    return a * b * c;
+                }
+            }
+        }
+    }
+}
+
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000);
@@ -285,3 +309,4 @@ function findLargestProductInSeries(series, sequenceLength) {
 //     "05886116467109405077541002256983155200055935729725" +
 //     "71636269561882670428252483600823257530420752963450",
 //     13);
+//findSpecialPythagoreanTriplet(1000);
