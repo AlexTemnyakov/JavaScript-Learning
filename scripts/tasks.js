@@ -203,7 +203,7 @@ function findDifferenceOfSquareOfSumAndSumOfSquares(max) {
 // }
 
 /**
- * Find the prime number at the passed position.
+ * Finds the prime number at the passed position.
  *
  * @param {number} position The position.
  * @return {number} The prime number at the position.
@@ -228,6 +228,32 @@ function findPrimeNumberAtPosition(position) {
     }
 }
 
+/**
+ * Finds the largest product of a sequence of the passed length in the passed series.
+ *
+ * @param {string} series A series.
+ * @param {number} sequenceLength The length of the sequence in the series.
+ * @return {number} The largest product.
+ */
+function findLargestProductInSeries(series, sequenceLength) {
+    alert("The series: " + series);
+
+    var largestProduct = 0;
+
+    for (var i = 0; i < series.length - sequenceLength; i++) {
+        var currentProduct = 1;
+        for (var j = 0; j < sequenceLength; j++) {
+            currentProduct *= parseInt(series[j + i]);
+        }
+        largestProduct = Math.max(currentProduct, largestProduct);
+    }
+
+    var output = "The largest product is " + largestProduct + ".";
+    alert(output);
+
+    return largestProduct;
+}
+
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000);
@@ -236,3 +262,26 @@ function findPrimeNumberAtPosition(position) {
 //findSmallestMultiple(20);
 //findDifferenceOfSquareOfSumAndSumOfSquares(100);
 //findPrimeNumberAtPosition(10001);
+//findLargestProductInSeries(getSeries(5), 3);
+// findLargestProductInSeries(
+//     "73167176531330624919225119674426574742355349194934" +
+//     "96983520312774506326239578318016984801869478851843" +
+//     "85861560789112949495459501737958331952853208805511" +
+//     "12540698747158523863050715693290963295227443043557" +
+//     "66896648950445244523161731856403098711121722383113" +
+//     "62229893423380308135336276614282806444486645238749" +
+//     "30358907296290491560440772390713810515859307960866" +
+//     "70172427121883998797908792274921901699720888093776" +
+//     "65727333001053367881220235421809751254540594752243" +
+//     "52584907711670556013604839586446706324415722155397" +
+//     "53697817977846174064955149290862569321978468622482" +
+//     "83972241375657056057490261407972968652414535100474" +
+//     "82166370484403199890008895243450658541227588666881" +
+//     "16427171479924442928230863465674813919123162824586" +
+//     "17866458359124566529476545682848912883142607690042" +
+//     "24219022671055626321111109370544217506941658960408" +
+//     "07198403850962455444362981230987879927244284909188" +
+//     "84580156166097919133875499200524063689912560717606" +
+//     "05886116467109405077541002256983155200055935729725" +
+//     "71636269561882670428252483600823257530420752963450",
+//     13);
