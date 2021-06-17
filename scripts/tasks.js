@@ -130,8 +130,35 @@ function findLargestPalindromeProduct() {
     return largestProduct;
 }
 
+/**
+ * Finds the smallest number which is dividable by all numbers from the required range.
+ *
+ * @param {number} rightBoundOfRange The range is [1, rightBoundOfRange].
+ * @return {number} The smallest multiple.
+ */
+function findSmallestMultiple(rightBoundOfRange) {
+    var number = rightBoundOfRange;
+    while (true) {
+        var isDividableByAllNumbers = true;
+        for (var i = 1; i <= rightBoundOfRange; i++) {
+            if (number % i !== 0) {
+                isDividableByAllNumbers = false;
+                break;
+            }
+        }
+        if (isDividableByAllNumbers) {
+            var output = "The smallest number that is dividable by all numbers from the range [" + 1 + ", " + rightBoundOfRange + "] is " + number + ".";
+            alert(output);
+            return number;
+        } else {
+            number++;
+        }
+    }
+}
+
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000);
 //findLargestPrimeFactorOfNumber(600851475143);
 //findLargestPalindromeProduct();
+findSmallestMultiple(20);
