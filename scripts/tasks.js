@@ -203,6 +203,27 @@ function findDifferenceOfSquareOfSumAndSumOfSquares(max) {
 // }
 
 /**
+ * Checks if the passed number is a prime number.
+ *
+ * @param {number} number The number to check.
+ * @return {boolean} True if it is a prime number. Otherwise, false.
+ */
+function isPrime(number) {
+    if (number === 0 || number === 1)
+        return false;
+
+    var prime = true;
+    for (var j = 2; j < number - 1; j++) {
+        if ((number % j) === 0) {
+            prime = false;
+            break;
+        }
+    }
+
+    return prime;
+}
+
+/**
  * Finds the prime number at the passed position.
  *
  * @param {number} position The position.
@@ -212,13 +233,8 @@ function findPrimeNumberAtPosition(position) {
     alert("It will take some time to solve.")
     var counter = 0;
     for (var i = 2; ; i++) {
-        var prime = true;
-        for (var j = 2; j < i - 1; j++)
-            if ((i % j) === 0)
-                prime = false;
-        if (prime) {
+        if (isPrime(i)) {
             counter++;
-
             if (counter === position) {
                 var output = "The prime number at the position " + position + " is " + i + ".";
                 alert(output);
@@ -278,6 +294,47 @@ function findSpecialPythagoreanTriplet(sum) {
     }
 }
 
+/**
+ * Returns the sieve of Eratosthenes up to the passed number
+ *
+ * @param {number} max The maximum number (not including it).
+ * @return {Array.<number>} The sieve of Eratosthenes up to the passed number.
+ */
+function getSieveOfEratosthenesUpTo(max) {
+    var sieveOfEratosthenes = new Array(max).fill(true);
+
+    for (var i = 2; i < max; i++) {
+        if (sieveOfEratosthenes[i] === true) {
+            for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
+                sieveOfEratosthenes[j] = false
+            }
+        }
+    }
+
+    return sieveOfEratosthenes
+}
+
+/**
+ * Returns the sum of the prime numbers below the passed maximum.
+ *
+ * @param {number} max The maximum number (not including it).
+ * @return {number} The sum of the prime numbers below the passed maximum.
+ */
+function findSumOfPrimesBelow(max) {
+    var sum = 0;
+    var sieveOfEratosthenes = getSieveOfEratosthenesUpTo(max);
+    for (var i = 2; i < max; i++) {
+        if (sieveOfEratosthenes[i] === true) {
+            sum += i;
+        }
+    }
+
+    var output = "The sum of the prime numbers below " + max + " is " + sum + ".";
+    alert(output);
+
+    return sum;
+}
+
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000);
@@ -310,3 +367,4 @@ function findSpecialPythagoreanTriplet(sum) {
 //     "71636269561882670428252483600823257530420752963450",
 //     13);
 //findSpecialPythagoreanTriplet(1000);
+findSumOfPrimesBelow(2000000);
