@@ -156,9 +156,27 @@ function findSmallestMultiple(rightBoundOfRange) {
     }
 }
 
+function findDifferenceOfSquareOfSumAndSumOfSquares(max) {
+    var sumOfSquares = 0;
+    var sum = 0;
+
+    for (var i = 1; i <= max; i++) {
+        sum += i;
+        sumOfSquares += i * i;
+    }
+
+    var difference = sum * sum - sumOfSquares;
+
+    var output = "The difference between the sum of the squares of the natural numbers up to " + max + " and the square of the sum is " + difference + ".";
+    alert(output);
+
+    return difference;
+}
+
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000);
 //findLargestPrimeFactorOfNumber(600851475143);
 //findLargestPalindromeProduct();
-findSmallestMultiple(20);
+//findSmallestMultiple(20);
+findDifferenceOfSquareOfSumAndSumOfSquares(100);
