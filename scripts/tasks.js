@@ -156,6 +156,12 @@ function findSmallestMultiple(rightBoundOfRange) {
     }
 }
 
+/**
+ * Assume the natural numbers from 1 to max. This functions returns (1 + 2 + ... + max)^2 - (1^2 + 2^2 + ... + max^2).
+ *
+ * @param {number} max The maximum natural number.
+ * @return {number} The difference.
+ */
 function findDifferenceOfSquareOfSumAndSumOfSquares(max) {
     var sumOfSquares = 0;
     var sum = 0;
@@ -173,10 +179,60 @@ function findDifferenceOfSquareOfSumAndSumOfSquares(max) {
     return difference;
 }
 
+// /**
+//  * Returns sieve of Eratosthenes.
+//  *
+//  * @return {Array.<number>} The sieve of Eratosthenes.
+//  */
+// function getSieveOfEratosthenes() {
+//     var maxArrayLength = Math.pow(2, 16)
+//     var sieveOfEratosthenes = new Array(maxArrayLength).fill(true);
+//
+//     var min = 2
+//     var max = maxArrayLength
+//
+//     for (var i = min; i < max; i++) {
+//         if (sieveOfEratosthenes[i] === true) {
+//             for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
+//                 sieveOfEratosthenes[j] = false
+//             }
+//         }
+//     }
+//
+//     return sieveOfEratosthenes
+// }
+
+/**
+ * Find the prime number at the passed position.
+ *
+ * @param {number} position The position.
+ * @return {number} The prime number at the position.
+ */
+function findPrimeNumberAtPosition(position) {
+    alert("It will take some time to solve.")
+    var counter = 0;
+    for (var i = 2; ; i++) {
+        var prime = true;
+        for (var j = 2; j < i - 1; j++)
+            if ((i % j) === 0)
+                prime = false;
+        if (prime) {
+            counter++;
+
+            if (counter === position) {
+                var output = "The prime number at the position " + position + " is " + i + ".";
+                alert(output);
+                return i;
+            }
+        }
+    }
+}
+
 //showMessage();
 //calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //calculateSumOfEvenFibonacciNumbersUpTo(4000000);
 //findLargestPrimeFactorOfNumber(600851475143);
 //findLargestPalindromeProduct();
 //findSmallestMultiple(20);
-findDifferenceOfSquareOfSumAndSumOfSquares(100);
+//findDifferenceOfSquareOfSumAndSumOfSquares(100);
+//findPrimeNumberAtPosition(10001);
