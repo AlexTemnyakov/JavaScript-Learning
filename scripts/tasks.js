@@ -10,10 +10,10 @@ function showMessage() {
  * @return {number} The sum of the multiples of the dividers up to the passed maximum.
  */
 function calculateSumOfMultiplesUpTo(max, dividers) {
-    let sum = 0
+    var sum = 0
 
-    for (let i = 0; i < max; i++) {
-        for (let j = 0; j < dividers.length; j++) {
+    for (var i = 0; i < max; i++) {
+        for (var j = 0; j < dividers.length; j++) {
             if (i % dividers[j] === 0) {
                 sum += i
                 // Break, because we don't want to count the current number again.
@@ -22,8 +22,8 @@ function calculateSumOfMultiplesUpTo(max, dividers) {
         }
     }
 
-    let output = "The sum of multiples of "
-    for (let i = 0; i < dividers.length; i++) {
+    var output = "The sum of multiples of "
+    for (var i = 0; i < dividers.length; i++) {
         output += dividers[i]
         if (i !== dividers.length - 1) {
             output += ", "
@@ -44,13 +44,13 @@ function calculateSumOfMultiplesUpTo(max, dividers) {
  * @return {number} The sum of the number of the Fibonacci sequence up to the passed maximum.
  */
 function calculateSumOfEvenFibonacciNumbersUpTo(max) {
-    let sum = 0
+    var sum = 0
 
-    let f1 = 1
-    let f2 = 1
+    var f1 = 1
+    var f2 = 1
 
     while (f1 + f2 < max) {
-        let currentNumber = f1 + f2
+        var currentNumber = f1 + f2
         f1 = f2
         f2 = currentNumber
         //alert(currentNumber)
@@ -59,12 +59,12 @@ function calculateSumOfEvenFibonacciNumbersUpTo(max) {
         }
     }
 
-    let output = "The sum of the numbers in the Fibonacci sequence up to " + max + " is " + sum
+    var output = "The sum of the numbers in the Fibonacci sequence up to " + max + " is " + sum
     alert(output)
 
     return sum
 }
 
 showMessage();
-//calculateSumOfMultiplesUpTo(1000, [3, 5]);
+calculateSumOfMultiplesUpTo(1000, [3, 5]);
 calculateSumOfEvenFibonacciNumbersUpTo(4000000)
