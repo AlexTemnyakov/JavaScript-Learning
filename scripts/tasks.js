@@ -181,29 +181,6 @@ LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
     return difference;
 }
 
-// /**
-//  * Returns sieve of Eratosthenes.
-//  *
-//  * @return {Array.<number>} The sieve of Eratosthenes.
-//  */
-// function getSieveOfEratosthenes() {
-//     var maxArrayLength = Math.pow(2, 16)
-//     var sieveOfEratosthenes = new Array(maxArrayLength).fill(true);
-//
-//     var min = 2
-//     var max = maxArrayLength
-//
-//     for (var i = min; i < max; i++) {
-//         if (sieveOfEratosthenes[i] === true) {
-//             for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
-//                 sieveOfEratosthenes[j] = false
-//             }
-//         }
-//     }
-//
-//     return sieveOfEratosthenes
-// }
-
 /**
  * Checks if the passed number is a prime number.
  *
@@ -559,6 +536,39 @@ LearningTasks.solveLongestCollatzSequence = function (max) {
     return numberForLongestSequence;
 }
 
+/**
+ * Returns the number of routes in the grid of the passed size.
+ *
+ * @param {number} gridSize The size of the grid.
+ * @return {number} The number of routes in the grid of the passed size.
+ */
+LearningTasks.solveLatticePaths = function (gridSize) {
+    gridSize++;
+
+    var grid = new Array(gridSize * gridSize).fill(0);
+
+    grid[0] = 1;
+
+    for (var i = 0; i < gridSize; i++) {
+        for (var j = 0; j < gridSize; j++) {
+            if (i > 0) {
+                grid[i * gridSize + j] += grid[(i - 1) * gridSize + j];
+            }
+
+            if (j > 0) {
+                grid[i * gridSize + j] += grid[i * gridSize + (j - 1)];
+            }
+
+            //console.log(i + " " + j + "  " + grid[i * gridSize + j]);
+        }
+    }
+
+    var output = "There are " + grid[grid.length - 1] + " routes.";
+    alert(output);
+
+    return grid[grid.length - 1];
+}
+
 //LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
 //LearningTasks.findLargestPrimeFactorOfNumber(600851475143);
@@ -716,4 +726,5 @@ LearningTasks.solveLongestCollatzSequence = function (max) {
 //     "20849603980134001723930671666823555245252804609722" +
 //     "53503534226472524250874054075591789781264330331690",
 //     100);
-LearningTasks.solveLongestCollatzSequence(1000000);
+//LearningTasks.solveLongestCollatzSequence(1000000);
+LearningTasks.solveLatticePaths(20);
