@@ -482,7 +482,7 @@ LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
         }
 
         sum = numberAtCurrentPosition % 10 + sum;
-        carryOut = numberAtCurrentPosition / 10 | 0;
+        carryOut = Math.floor(numberAtCurrentPosition / 10);
     }
 
     if (carryOut > 0) {
@@ -567,6 +567,29 @@ LearningTasks.solveLatticePaths = function (gridSize) {
     alert(output);
 
     return grid[grid.length - 1];
+}
+
+/**
+ * Returns the sum of the digits in 2^power.
+ *
+ * @param {number} power The required power.
+ * @return {number} The sum of the digits in 2^power.
+ */
+LearningTasks.solvePowerDigitSum = function (power) {
+    var n = Math.pow(2, power);
+
+    var sum = 0;
+
+    while (n > 0) {
+        var lastDigit = n % 10;
+        sum += lastDigit;
+        n = Math.floor(n / 10);
+    }
+
+    var output = "The sum of the digits in 2^" + power + " is " + sum + ".";
+    alert(output);
+
+    return sum;
 }
 
 //LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
@@ -727,4 +750,5 @@ LearningTasks.solveLatticePaths = function (gridSize) {
 //     "53503534226472524250874054075591789781264330331690",
 //     100);
 //LearningTasks.solveLongestCollatzSequence(1000000);
-LearningTasks.solveLatticePaths(20);
+//LearningTasks.solveLatticePaths(20);
+LearningTasks.solvePowerDigitSum(1000)
