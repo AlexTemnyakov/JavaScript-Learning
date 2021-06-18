@@ -1,6 +1,6 @@
-var learningTasks = {};
+var LearningTasks = {};
 
-learningTasks.showMessage = function() {
+LearningTasks.showMessage = function () {
     alert("This script will show the answers to the tasks from https://projecteuler.net/archives.");
 }
 
@@ -11,7 +11,7 @@ learningTasks.showMessage = function() {
  * @param {Array.<number>} dividers An array of dividers.
  * @return {number} The sum of the multiples of the dividers up to the passed maximum.
  */
-learningTasks.calculateSumOfMultiplesUpTo = function(max, dividers) {
+LearningTasks.calculateSumOfMultiplesUpTo = function (max, dividers) {
     var sum = 0;
 
     for (var i = 0; i < max; i++) {
@@ -45,7 +45,7 @@ learningTasks.calculateSumOfMultiplesUpTo = function(max, dividers) {
  * @param {number} max The maximum number in the Fibonacci sequence.
  * @return {number} The sum of the number of the Fibonacci sequence up to the passed maximum.
  */
-learningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function(max) {
+LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
     var sum = 0;
 
     var f1 = 1;
@@ -73,7 +73,7 @@ learningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function(max) {
  * @param {number} number The number you want to find the largest prime factor of.
  * @return {number} The largest prime factor of the passed number.
  */
-learningTasks.findLargestPrimeFactorOfNumber = function(number) {
+LearningTasks.findLargestPrimeFactorOfNumber = function (number) {
     var backupOfNumber = number;
     var factor = 2;
 
@@ -97,7 +97,7 @@ learningTasks.findLargestPrimeFactorOfNumber = function(number) {
  * @param {number} number The number you want to check if it is a palindrome.
  * @return {boolean} True if the passed number is a palindrome. Otherwise, false.
  */
-learningTasks.isPalindrome = function(number) {
+LearningTasks.isPalindrome = function (number) {
     var numberS = number.toString();
 
     for (var i = 0; i < numberS.length / 2; i++) {
@@ -114,13 +114,13 @@ learningTasks.isPalindrome = function(number) {
  *
  * @return {number} The largest palindrome product of two 3-digit numbers.
  */
-learningTasks.findLargestPalindromeProduct = function() {
+LearningTasks.findLargestPalindromeProduct = function () {
     var largestProduct = 0;
 
     for (var num1 = 100; num1 < 1000; num1++) {
         for (var num2 = num1; num2 < 1000; num2++) {
             var currentProduct = num1 * num2
-            if (currentProduct > largestProduct && learningTasks.isPalindrome(num1 * num2)) {
+            if (currentProduct > largestProduct && LearningTasks.isPalindrome(num1 * num2)) {
                 largestProduct = currentProduct;
             }
         }
@@ -138,7 +138,7 @@ learningTasks.findLargestPalindromeProduct = function() {
  * @param {number} rightBoundOfRange The range is [1, rightBoundOfRange].
  * @return {number} The smallest multiple.
  */
-learningTasks.findSmallestMultiple = function(rightBoundOfRange) {
+LearningTasks.findSmallestMultiple = function (rightBoundOfRange) {
     var number = rightBoundOfRange;
     while (true) {
         var isDividableByAllNumbers = true;
@@ -164,7 +164,7 @@ learningTasks.findSmallestMultiple = function(rightBoundOfRange) {
  * @param {number} max The maximum natural number.
  * @return {number} The difference.
  */
-learningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function(max) {
+LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
     var sumOfSquares = 0;
     var sum = 0;
 
@@ -210,7 +210,7 @@ learningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function(max) {
  * @param {number} number The number to check.
  * @return {boolean} True if it is a prime number. Otherwise, false.
  */
-learningTasks.isPrime = function(number) {
+LearningTasks.isPrime = function (number) {
     if (number === 0 || number === 1)
         return false;
 
@@ -231,11 +231,11 @@ learningTasks.isPrime = function(number) {
  * @param {number} position The position.
  * @return {number} The prime number at the position.
  */
-learningTasks.findPrimeNumberAtPosition = function(position) {
+LearningTasks.findPrimeNumberAtPosition = function (position) {
     alert("It will take some time to solve.")
     var counter = 0;
     for (var i = 2; ; i++) {
-        if (learningTasks.isPrime(i)) {
+        if (LearningTasks.isPrime(i)) {
             counter++;
             if (counter === position) {
                 var output = "The prime number at the position " + position + " is " + i + ".";
@@ -253,7 +253,7 @@ learningTasks.findPrimeNumberAtPosition = function(position) {
  * @param {number} sequenceLength The length of the sequence in the series.
  * @return {number} The largest product.
  */
-learningTasks.findLargestProductInSeries = function(series, sequenceLength) {
+LearningTasks.findLargestProductInSeries = function (series, sequenceLength) {
     alert("The series: " + series);
 
     var largestProduct = 0;
@@ -278,7 +278,7 @@ learningTasks.findLargestProductInSeries = function(series, sequenceLength) {
  * @param {number} sum The required sum of the sides of the triangles.
  * @return {number} The product of the side of the found triangle.
  */
-learningTasks.findSpecialPythagoreanTriplet = function(sum) {
+LearningTasks.findSpecialPythagoreanTriplet = function (sum) {
     for (var a = 1; a <= (sum - 1 - 1); a++) {
         for (var b = a + 1; b <= (sum - a - 1); b++) {
             for (var c = b + 1; c <= (sum - a - b); c++) {
@@ -302,7 +302,7 @@ learningTasks.findSpecialPythagoreanTriplet = function(sum) {
  * @param {number} max The maximum number (not including it).
  * @return {Array.<number>} The sieve of Eratosthenes up to the passed number.
  */
-learningTasks.getSieveOfEratosthenesUpTo = function(max) {
+LearningTasks.getSieveOfEratosthenesUpTo = function (max) {
     var sieveOfEratosthenes = new Array(max).fill(true);
 
     for (var i = 2; i < max; i++) {
@@ -322,9 +322,9 @@ learningTasks.getSieveOfEratosthenesUpTo = function(max) {
  * @param {number} max The maximum number (not including it).
  * @return {number} The sum of the prime numbers below the passed maximum.
  */
-learningTasks.findSumOfPrimesBelow = function(max) {
+LearningTasks.findSumOfPrimesBelow = function (max) {
     var sum = 0;
-    var sieveOfEratosthenes = learningTasks.getSieveOfEratosthenesUpTo(max);
+    var sieveOfEratosthenes = LearningTasks.getSieveOfEratosthenesUpTo(max);
     for (var i = 2; i < max; i++) {
         if (sieveOfEratosthenes[i] === true) {
             sum += i;
@@ -337,16 +337,113 @@ learningTasks.findSumOfPrimesBelow = function(max) {
     return sum;
 }
 
-learningTasks.showMessage();
-//learningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
-//learningTasks.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
-//learningTasks.findLargestPrimeFactorOfNumber(600851475143);
-//learningTasks.findLargestPalindromeProduct();
-//learningTasks.findSmallestMultiple(20);
-//learningTasks.findDifferenceOfSquareOfSumAndSumOfSquares(100);
-//learningTasks.findPrimeNumberAtPosition(10001);
-//learningTasks.findLargestProductInSeries(getSeries(5), 3);
-// learningTasks.findLargestProductInSeries(
+/**
+ * Returns the largest product of adjacent numbers in a sequence of the passed length.
+ *
+ * @param {Array.<number>} grid A square grid.
+ * @param {number} sequenceLength The length of a sequence in the grid to calculate the product.
+ * @return {number} The largest product of adjacent numbers in a sequence of the passed length.
+ */
+LearningTasks.largestProductInGrid = function (grid, sequenceLength) {
+    var isSquare = function (n) {
+        return n > 0 && Math.sqrt(n) % 1 === 0;
+    };
+
+    if (!isSquare(grid.length)) {
+        throw "Incorrect grid.\n";
+    }
+
+    var gridSize = Math.sqrt(grid.length);
+
+    // Checks a sequence on right.
+    var checkRight = function (i) {
+        var iAtRow = i % gridSize;
+        if (iAtRow + sequenceLength < gridSize) {
+            var product = 1;
+            for (var _i = 0; _i < sequenceLength; _i++) {
+                product *= grid[i + _i];
+            }
+            return [true, product];
+        }
+        return [false, 0];
+    };
+
+    // Checks a sequence below.
+    var checkBelow = function (i) {
+        var product = 1;
+        for (var _i = 0; _i < sequenceLength; _i++) {
+            if (i + gridSize * _i < grid.length) {
+                product *= grid[i + gridSize * _i];
+            } else {
+                return [false, 0];
+            }
+        }
+        return [true, product];
+    };
+
+    // Checks a sequence on below left.
+    var checkBelowLeft = function (i) {
+        var product = 1;
+        for (var _i = 0, _j = 0; _i < sequenceLength; _i++, _j++) {
+            var currentI = i + gridSize * _i - _j;
+            if (currentI >= 0 && currentI < grid.length) {
+                product *= grid[currentI];
+            } else {
+                return [false, 0];
+            }
+        }
+        return [true, product];
+    }
+
+    // Checks a sequence on below right.
+    var checkBelowRight = function (i) {
+        var product = 1;
+        for (var _i = 0, _j = 0; _i < sequenceLength; _i++, _j++) {
+            var currentI = i + gridSize * _i + _j;
+            var currentIAtRow = i + _j;
+            if (currentI < grid.length && currentIAtRow < gridSize) {
+                product *= grid[currentI];
+            } else {
+                return [false, 0];
+            }
+        }
+        return [true, product];
+    }
+
+    var largestProduct = 0;
+
+    // Checks if the sequence is OK and if the product is the largest.
+    var checkResult = function (result) {
+        if (result[0] && result[1] > largestProduct) {
+            return result[1];
+        } else {
+            return largestProduct;
+        }
+    }
+
+    for (var i = 0; i < grid.length; i++) {
+        largestProduct = checkResult(checkRight(i));
+        largestProduct = checkResult(checkBelow(i));
+        largestProduct = checkResult(checkBelowLeft(i));
+        largestProduct = checkResult(checkBelowRight(i));
+    }
+
+    var output = "The largest product of a sequence of adjacent numbers of the length " + sequenceLength + " is " + largestProduct + ".";
+    alert(output);
+
+    return largestProduct;
+}
+
+LearningTasks.showMessage();
+//LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
+//LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
+//LearningTasks.findLargestPrimeFactorOfNumber(600851475143);
+//LearningTasks.findLargestPalindromeProduct();
+//LearningTasks.findSmallestMultiple(20);
+//LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares(100);
+//LearningTasks.findPrimeNumberAtPosition(10001);
+//LearningTasks.findLargestProductInSeries(getSeries(5), 3);
+// LearningTasks.findLargestProductInSeries(
 //     "73167176531330624919225119674426574742355349194934" +
 //     "96983520312774506326239578318016984801869478851843" +
 //     "85861560789112949495459501737958331952853208805511" +
@@ -368,5 +465,27 @@ learningTasks.showMessage();
 //     "05886116467109405077541002256983155200055935729725" +
 //     "71636269561882670428252483600823257530420752963450",
 //     13);
-//learningTasks.findSpecialPythagoreanTriplet(1000);
-learningTasks.findSumOfPrimesBelow(2000000);
+//LearningTasks.findSpecialPythagoreanTriplet(1000);
+//LearningTasks.findSumOfPrimesBelow(2000000);
+LearningTasks.largestProductInGrid(
+    [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8,
+    49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0,
+    81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65,
+    52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91,
+    22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80,
+    24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50,
+    32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70,
+    67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 08, 40, 91, 66, 49, 94, 21,
+    24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72,
+    21, 36, 23, 09, 75, 0, 76, 44, 20, 45, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95,
+    78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 09, 53, 56, 92,
+    16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 0, 17, 54, 24, 36, 29, 85, 57,
+    86, 56, 0, 48, 35, 71, 89, 7, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58,
+    19, 80, 81, 68, 5, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 4, 89, 55, 40,
+    4, 52, 08, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66,
+    88, 36, 68, 87, 57, 62, 20, 72, 3, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69,
+    4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 08, 46, 29, 32, 40, 62, 76, 36,
+    20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16,
+    20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54,
+    1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
+    4)
