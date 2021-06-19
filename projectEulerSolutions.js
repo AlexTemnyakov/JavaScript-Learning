@@ -1,6 +1,6 @@
-var LearningTasks = {};
+var ProjectEulerSolutions = {};
 
-LearningTasks.showMessage = function () {
+ProjectEulerSolutions.showMessage = function () {
     alert("This script will show the answers to the tasks from https://projecteuler.net/archives.");
 }
 
@@ -12,7 +12,7 @@ LearningTasks.showMessage = function () {
  * @param {Array.<number>} dividers An array of dividers.
  * @return {number} The sum of the multiples of the dividers up to the passed maximum.
  */
-LearningTasks.calculateSumOfMultiplesUpTo = function (max, dividers) {
+ProjectEulerSolutions.calculateSumOfMultiplesUpTo = function (max, dividers) {
     var sum = 0;
 
     for (var i = 0; i < max; i++) {
@@ -47,7 +47,7 @@ LearningTasks.calculateSumOfMultiplesUpTo = function (max, dividers) {
  * @param {number} max The maximum number in the Fibonacci sequence.
  * @return {number} The sum of the number of the Fibonacci sequence up to the passed maximum.
  */
-LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
+ProjectEulerSolutions.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
     var sum = 0;
 
     var f1 = 1;
@@ -75,7 +75,7 @@ LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
  * @param {number} number The number you want to find the largest prime factor of.
  * @return {number} The largest prime factor of the passed number.
  */
-LearningTasks.findLargestPrimeFactorOfNumber = function (number) {
+ProjectEulerSolutions.findLargestPrimeFactorOfNumber = function (number) {
     var factor = 2;
 
     while (number > 1) {
@@ -97,7 +97,7 @@ LearningTasks.findLargestPrimeFactorOfNumber = function (number) {
  *
  * @return {number} The largest palindrome product of two 3-digit numbers.
  */
-LearningTasks.findLargestPalindromeProduct = function () {
+ProjectEulerSolutions.findLargestPalindromeProduct = function () {
     var isPalindrome = function (number) {
         var numberS = number.toString();
 
@@ -133,7 +133,7 @@ LearningTasks.findLargestPalindromeProduct = function () {
  * @param {number} rightBoundOfRange The range is [1, rightBoundOfRange].
  * @return {number} The smallest multiple.
  */
-LearningTasks.findSmallestMultiple = function (rightBoundOfRange) {
+ProjectEulerSolutions.findSmallestMultiple = function (rightBoundOfRange) {
     var number = rightBoundOfRange;
     while (true) {
         var isDividableByAllNumbers = true;
@@ -160,7 +160,7 @@ LearningTasks.findSmallestMultiple = function (rightBoundOfRange) {
  * @param {number} max The maximum natural number.
  * @return {number} The difference.
  */
-LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
+ProjectEulerSolutions.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
     var sumOfSquares = 0;
     var sum = 0;
 
@@ -183,7 +183,7 @@ LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
  * @param {number} position The position.
  * @return {number} The prime number at the position.
  */
-LearningTasks.findPrimeNumberAtPosition = function (position) {
+ProjectEulerSolutions.findPrimeNumberAtPosition = function (position) {
     var isPrime = function (number) {
         if (number === 0 || number === 1)
             return false;
@@ -220,7 +220,7 @@ LearningTasks.findPrimeNumberAtPosition = function (position) {
  * @param {number} sequenceLength The length of the sequence in the series.
  * @return {number} The largest product.
  */
-LearningTasks.findLargestProductInSeries = function (series, sequenceLength) {
+ProjectEulerSolutions.findLargestProductInSeries = function (series, sequenceLength) {
     var largestProduct = 0;
 
     for (var i = 0; i < series.length - sequenceLength; i++) {
@@ -244,7 +244,7 @@ LearningTasks.findLargestProductInSeries = function (series, sequenceLength) {
  * @param {number} sum The required sum of the sides of the triangles.
  * @return {number} The product of the side of the found triangle.
  */
-LearningTasks.findSpecialPythagoreanTriplet = function (sum) {
+ProjectEulerSolutions.findSpecialPythagoreanTriplet = function (sum) {
     for (var a = 1; a <= (sum - 1 - 1); a++) {
         for (var b = a + 1; b <= (sum - a - 1); b++) {
             for (var c = b + 1; c <= (sum - a - b); c++) {
@@ -268,7 +268,7 @@ LearningTasks.findSpecialPythagoreanTriplet = function (sum) {
  * @param {number} max The maximum number (not including it).
  * @return {number} The sum of the prime numbers below the passed maximum.
  */
-LearningTasks.findSumOfPrimesBelow = function (max) {
+ProjectEulerSolutions.findSumOfPrimesBelow = function (max) {
     var sieveOfEratosthenes = function (max) {
         var sieveOfEratosthenes = new Array(max).fill(true);
 
@@ -303,7 +303,7 @@ LearningTasks.findSumOfPrimesBelow = function (max) {
  * @param {number} sequenceLength The length of a sequence in the grid to calculate the product.
  * @return {number} The largest product of adjacent numbers in a sequence of the passed length.
  */
-LearningTasks.largestProductInGrid = function (grid, sequenceLength) {
+ProjectEulerSolutions.largestProductInGrid = function (grid, sequenceLength) {
     var gridSize = Math.sqrt(grid.length);
 
     // Checks a sequence on right.
@@ -391,7 +391,7 @@ LearningTasks.largestProductInGrid = function (grid, sequenceLength) {
  * @param {number} numberOfDivisors The required number of divisors.
  * @return {number} The smallest triangular number that has a greater number of divisors than the passed.
  */
-LearningTasks.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) {
+ProjectEulerSolutions.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) {
     var getNumberOfDivisors = function (n) {
         var cnt = 0;
         for (var i = 1; i <= Math.sqrt(n); i++) {
@@ -425,7 +425,7 @@ LearningTasks.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) 
  * @param {number} countOfNumbers The count of numbers in the sequence. The length of the sequence must be divisible by the countOfNumbers without anu remainder.
  * @return {string} The smallest triangular number that has a greater number of divisors than the passed.
  */
-LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
+ProjectEulerSolutions.solveLargeSum = function (sequence, countOfNumbers) {
     var countOfDigitsInNumber = sequence.length / countOfNumbers;
 
     var chunks = function (str, size) {
@@ -471,7 +471,7 @@ LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
  * @param {number} max The maximum number to calculate the Collatz sequence.
  * @return {number} The number less than the passed maximum that produces the longest Collatz sequence.
  */
-LearningTasks.solveLongestCollatzSequence = function (max) {
+ProjectEulerSolutions.solveLongestCollatzSequence = function (max) {
     var getCollatzSequenceLength = function (n) {
         var collatzSequenceLength = 1;
 
@@ -510,7 +510,7 @@ LearningTasks.solveLongestCollatzSequence = function (max) {
  * @param {number} gridSize The size of the grid.
  * @return {number} The number of routes in the grid of the passed size.
  */
-LearningTasks.solveLatticePaths = function (gridSize) {
+ProjectEulerSolutions.solveLatticePaths = function (gridSize) {
     gridSize++;
 
     var grid = new Array(gridSize * gridSize).fill(0);
@@ -543,7 +543,7 @@ LearningTasks.solveLatticePaths = function (gridSize) {
  * @param {BigInt} power The required power.
  * @return {number} The sum of the digits in 2^power.
  */
-LearningTasks.solvePowerDigitSum = function (power) {
+ProjectEulerSolutions.solvePowerDigitSum = function (power) {
     // Like Math.pow(...).
     var n = function (n, p) {
         var ret = 1n;
@@ -574,7 +574,7 @@ LearningTasks.solvePowerDigitSum = function (power) {
  *
  * @return {number} The count of letters if all numbers from 1 to 100 are written in words.
  */
-LearningTasks.solveNumberLetterCounts = function () {
+ProjectEulerSolutions.solveNumberLetterCounts = function () {
     var elementaryNumberToWords = function (n)
     {
         if (n >= 20 && n % 10 !== 0) {
@@ -685,7 +685,7 @@ LearningTasks.solveNumberLetterCounts = function () {
  * @param {Array<number>} triangle A triangle.
  * @return {number} The  path of the maximum cost from the top of the given triangle to the bottom.
  */
-LearningTasks.solveMaximumPathSum = function (triangle) {
+ProjectEulerSolutions.solveMaximumPathSum = function (triangle) {
     var numberOfRows = 0;
 
     var elementCounter = 0;
@@ -736,7 +736,7 @@ LearningTasks.solveMaximumPathSum = function (triangle) {
  * @param {number} endYear The end year for counting.
  * @return {number} The count on Sundays that fell on the first of the month during the passed years.
  */
-LearningTasks.countSundays = function (startYear, endYear) {
+ProjectEulerSolutions.countSundays = function (startYear, endYear) {
     var isYearLeap = function (year) {
         if ((year % 400 !== 0 && year % 100 === 0) || (year % 4 !== 0)) {
             return false;
@@ -795,7 +795,7 @@ LearningTasks.countSundays = function (startYear, endYear) {
  * @param {BigInt} n The number to calculate the sum of digits in the factorial.
  * @returns {BigInt} The sum of digits in the factorial of the passed number.
  */
-LearningTasks.calculateFactorialDigitSum = function (n) {
+ProjectEulerSolutions.calculateFactorialDigitSum = function (n) {
     var factorial = function (n) {
         var factorial = 1n;
         while (n > 0n) {
@@ -819,14 +819,14 @@ LearningTasks.calculateFactorialDigitSum = function (n) {
     return sumOfDigits;
 }
 
-LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
-LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
-LearningTasks.findLargestPrimeFactorOfNumber(600851475143);
-LearningTasks.findLargestPalindromeProduct();
-LearningTasks.findSmallestMultiple(20);
-LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares(100);
-LearningTasks.findPrimeNumberAtPosition(10001);
-LearningTasks.findLargestProductInSeries(
+ProjectEulerSolutions.calculateSumOfMultiplesUpTo(1000, [3, 5]);
+ProjectEulerSolutions.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
+ProjectEulerSolutions.findLargestPrimeFactorOfNumber(600851475143);
+ProjectEulerSolutions.findLargestPalindromeProduct();
+ProjectEulerSolutions.findSmallestMultiple(20);
+ProjectEulerSolutions.findDifferenceOfSquareOfSumAndSumOfSquares(100);
+ProjectEulerSolutions.findPrimeNumberAtPosition(10001);
+ProjectEulerSolutions.findLargestProductInSeries(
     "73167176531330624919225119674426574742355349194934" +
     "96983520312774506326239578318016984801869478851843" +
     "85861560789112949495459501737958331952853208805511" +
@@ -848,9 +848,9 @@ LearningTasks.findLargestProductInSeries(
     "05886116467109405077541002256983155200055935729725" +
     "71636269561882670428252483600823257530420752963450",
     13);
-LearningTasks.findSpecialPythagoreanTriplet(1000);
-LearningTasks.findSumOfPrimesBelow(2000000);
-LearningTasks.largestProductInGrid(
+ProjectEulerSolutions.findSpecialPythagoreanTriplet(1000);
+ProjectEulerSolutions.findSumOfPrimesBelow(2000000);
+ProjectEulerSolutions.largestProductInGrid(
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8,
         49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0,
         81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65,
@@ -872,8 +872,8 @@ LearningTasks.largestProductInGrid(
         20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54,
         1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
     4)
-LearningTasks.findHighlyDivisibleTriangularNumber(500);
-LearningTasks.solveLargeSum(
+ProjectEulerSolutions.findHighlyDivisibleTriangularNumber(500);
+ProjectEulerSolutions.solveLargeSum(
     "37107287533902102798797998220837590246510135740250" +
     "46376937677490009712648124896970078050417018260538" +
     "74324986199524741059474233309513058123726617309629" +
@@ -975,11 +975,11 @@ LearningTasks.solveLargeSum(
     "20849603980134001723930671666823555245252804609722" +
     "53503534226472524250874054075591789781264330331690",
     100);
-LearningTasks.solveLongestCollatzSequence(1000000);
-LearningTasks.solveLatticePaths(20);
-LearningTasks.solvePowerDigitSum(1000n);
-LearningTasks.solveNumberLetterCounts();
-LearningTasks.solveMaximumPathSum([
+ProjectEulerSolutions.solveLongestCollatzSequence(1000000);
+ProjectEulerSolutions.solveLatticePaths(20);
+ProjectEulerSolutions.solvePowerDigitSum(1000n);
+ProjectEulerSolutions.solveNumberLetterCounts();
+ProjectEulerSolutions.solveMaximumPathSum([
     75,
     95, 64,
     17, 47, 82,
@@ -995,5 +995,5 @@ LearningTasks.solveMaximumPathSum([
     91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48,
     63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
     4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]);
-LearningTasks.countSundays(1901, 2000);
-LearningTasks.calculateFactorialDigitSum(100n);
+ProjectEulerSolutions.countSundays(1901, 2000);
+ProjectEulerSolutions.calculateFactorialDigitSum(100n);
