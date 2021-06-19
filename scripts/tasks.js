@@ -13,8 +13,6 @@ LearningTasks.showMessage = function () {
  * @return {number} The sum of the multiples of the dividers up to the passed maximum.
  */
 LearningTasks.calculateSumOfMultiplesUpTo = function (max, dividers) {
-    alert("Task 'Multiples of 3 and 5' https://projecteuler.net/problem=1.");
-
     var sum = 0;
 
     for (var i = 0; i < max; i++) {
@@ -36,8 +34,8 @@ LearningTasks.calculateSumOfMultiplesUpTo = function (max, dividers) {
             output += " ";
         }
     }
-    output += "up to " + max + " is " + sum;
-    alert(output);
+
+    alert("Task 'Multiples of 3 and 5' https://projecteuler.net/problem=1.\n\nAnswer: " + sum);
 
     return sum;
 }
@@ -50,8 +48,6 @@ LearningTasks.calculateSumOfMultiplesUpTo = function (max, dividers) {
  * @return {number} The sum of the number of the Fibonacci sequence up to the passed maximum.
  */
 LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
-    alert("Task '\tEven Fibonacci numbers' https://projecteuler.net/problem=2.");
-
     var sum = 0;
 
     var f1 = 1;
@@ -67,8 +63,7 @@ LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
         }
     }
 
-    var output = "The sum of the numbers in the Fibonacci sequence up to " + max + " is " + sum;
-    alert(output);
+    alert("Task 'Even Fibonacci numbers' https://projecteuler.net/problem=2.\n\nAnswer: " + sum);
 
     return sum;
 }
@@ -81,9 +76,6 @@ LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
  * @return {number} The largest prime factor of the passed number.
  */
 LearningTasks.findLargestPrimeFactorOfNumber = function (number) {
-    alert("Task 'Largest prime factor' https://projecteuler.net/problem=3.");
-
-    var backupOfNumber = number;
     var factor = 2;
 
     while (number > 1) {
@@ -94,8 +86,7 @@ LearningTasks.findLargestPrimeFactorOfNumber = function (number) {
         }
     }
 
-    var output = "The largest prime factor of " + backupOfNumber + " is " + factor + ".";
-    alert(output);
+    alert("Task 'Largest prime factor' https://projecteuler.net/problem=3.\n\nAnswer: " + factor);
 
     return factor;
 }
@@ -125,8 +116,6 @@ LearningTasks.isPalindrome = function (number) {
  * @return {number} The largest palindrome product of two 3-digit numbers.
  */
 LearningTasks.findLargestPalindromeProduct = function () {
-    alert("Task 'Largest palindrome product' https://projecteuler.net/problem=4.")
-
     var largestProduct = 0;
 
     for (var num1 = 100; num1 < 1000; num1++) {
@@ -138,8 +127,7 @@ LearningTasks.findLargestPalindromeProduct = function () {
         }
     }
 
-    var output = "The largest palindrome product of two 3-digit numbers is " + largestProduct + ".";
-    alert(output);
+    alert("Task 'Largest palindrome product' https://projecteuler.net/problem=4.\n\nAnswer: " + largestProduct);
 
     return largestProduct;
 }
@@ -152,8 +140,6 @@ LearningTasks.findLargestPalindromeProduct = function () {
  * @return {number} The smallest multiple.
  */
 LearningTasks.findSmallestMultiple = function (rightBoundOfRange) {
-    alert("Task 'Smallest multiple' https://projecteuler.net/problem=5.");
-
     var number = rightBoundOfRange;
     while (true) {
         var isDividableByAllNumbers = true;
@@ -164,8 +150,7 @@ LearningTasks.findSmallestMultiple = function (rightBoundOfRange) {
             }
         }
         if (isDividableByAllNumbers) {
-            var output = "The smallest number that is dividable by all numbers from the range [" + 1 + ", " + rightBoundOfRange + "] is " + number + ".";
-            alert(output);
+            alert("Task 'Smallest multiple' https://projecteuler.net/problem=5.\n\nAnswer: " + number);
 
             return number;
         } else {
@@ -182,8 +167,6 @@ LearningTasks.findSmallestMultiple = function (rightBoundOfRange) {
  * @return {number} The difference.
  */
 LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
-    alert("Task 'Sum square difference' https://projecteuler.net/problem=6.");
-
     var sumOfSquares = 0;
     var sum = 0;
 
@@ -194,31 +177,9 @@ LearningTasks.findDifferenceOfSquareOfSumAndSumOfSquares = function (max) {
 
     var difference = sum * sum - sumOfSquares;
 
-    var output = "The difference between the sum of the squares of the natural numbers up to " + max + " and the square of the sum is " + difference + ".";
-    alert(output);
+    alert("Task 'Sum square difference' https://projecteuler.net/problem=6.\n\nAnswer: " + difference);
 
     return difference;
-}
-
-/**
- * Checks if the passed number is a prime number.
- *
- * @param {number} number The number to check.
- * @return {boolean} True if it is a prime number. Otherwise, false.
- */
-LearningTasks.isPrime = function (number) {
-    if (number === 0 || number === 1)
-        return false;
-
-    var prime = true;
-    for (var j = 2; j < number - 1; j++) {
-        if ((number % j) === 0) {
-            prime = false;
-            break;
-        }
-    }
-
-    return prime;
 }
 
 /**
@@ -229,14 +190,27 @@ LearningTasks.isPrime = function (number) {
  * @return {number} The prime number at the position.
  */
 LearningTasks.findPrimeNumberAtPosition = function (position) {
-    alert("Task '10001st prime' https://projecteuler.net/problem=7.\nIt will take some time to solve.")
+    var isPrime = function (number) {
+        if (number === 0 || number === 1)
+            return false;
+
+        var prime = true;
+        for (var j = 2; j < number - 1; j++) {
+            if ((number % j) === 0) {
+                prime = false;
+                break;
+            }
+        }
+
+        return prime;
+    }
+
     var counter = 0;
     for (var i = 2; ; i++) {
-        if (LearningTasks.isPrime(i)) {
+        if (isPrime(i)) {
             counter++;
             if (counter === position) {
-                var output = "The prime number at the position " + position + " is " + i + ".";
-                alert(output);
+                alert("Task '10001st prime' https://projecteuler.net/problem=7.\nIt will take some time to solve.\n\nAnswer: " + i);
 
                 return i;
             }
@@ -253,8 +227,6 @@ LearningTasks.findPrimeNumberAtPosition = function (position) {
  * @return {number} The largest product.
  */
 LearningTasks.findLargestProductInSeries = function (series, sequenceLength) {
-    alert("Task 'Largest product in a series' https://projecteuler.net/problem=8.");
-
     var largestProduct = 0;
 
     for (var i = 0; i < series.length - sequenceLength; i++) {
@@ -266,7 +238,7 @@ LearningTasks.findLargestProductInSeries = function (series, sequenceLength) {
     }
 
     var output = "The largest product is " + largestProduct + ".";
-    alert(output);
+    alert("Task 'Largest product in a series' https://projecteuler.net/problem=8.\n\nAnswer: " + largestProduct);
 
     return largestProduct;
 }
@@ -279,8 +251,6 @@ LearningTasks.findLargestProductInSeries = function (series, sequenceLength) {
  * @return {number} The product of the side of the found triangle.
  */
 LearningTasks.findSpecialPythagoreanTriplet = function (sum) {
-    alert("Task 'Special Pythagorean triplet' https://projecteuler.net/problem=9.");
-
     for (var a = 1; a <= (sum - 1 - 1); a++) {
         for (var b = a + 1; b <= (sum - a - 1); b++) {
             for (var c = b + 1; c <= (sum - a - b); c++) {
@@ -288,35 +258,13 @@ LearningTasks.findSpecialPythagoreanTriplet = function (sum) {
                     return ((a * a) + (b * b)) === (c * c);
                 } ();
                 if (isPythagoreanTriangle && (a + b + c) === sum) {
-                    var output = "The Pythagorean triplet with the sum that is equal to " + sum + " is " + a + ", " + b + ", and " + c + ".\n";
-                    output += "The product of the side lengths is " + (a * b * c) + ".";
-                    alert(output);
+                    alert("Task 'Special Pythagorean triplet' https://projecteuler.net/problem=9.\n\nAnswer: " + (a * b * c));
 
                     return a * b * c;
                 }
             }
         }
     }
-}
-
-/**
- * Returns the sieve of Eratosthenes up to the passed number
- *
- * @param {number} max The maximum number (not including it).
- * @return {Array.<number>} The sieve of Eratosthenes up to the passed number.
- */
-LearningTasks.getSieveOfEratosthenesUpTo = function (max) {
-    var sieveOfEratosthenes = new Array(max).fill(true);
-
-    for (var i = 2; i < max; i++) {
-        if (sieveOfEratosthenes[i] === true) {
-            for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
-                sieveOfEratosthenes[j] = false
-            }
-        }
-    }
-
-    return sieveOfEratosthenes
 }
 
 /**
@@ -327,18 +275,29 @@ LearningTasks.getSieveOfEratosthenesUpTo = function (max) {
  * @return {number} The sum of the prime numbers below the passed maximum.
  */
 LearningTasks.findSumOfPrimesBelow = function (max) {
-    alert("Task 'Summation of primes' https://projecteuler.net/problem=10.");
+    var getSieveOfEratosthenesUpTo = function (max) {
+        var sieveOfEratosthenes = new Array(max).fill(true);
+
+        for (var i = 2; i < max; i++) {
+            if (sieveOfEratosthenes[i] === true) {
+                for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
+                    sieveOfEratosthenes[j] = false
+                }
+            }
+        }
+
+        return sieveOfEratosthenes
+    }
 
     var sum = 0;
-    var sieveOfEratosthenes = LearningTasks.getSieveOfEratosthenesUpTo(max);
+    var sieveOfEratosthenes = getSieveOfEratosthenesUpTo(max);
     for (var i = 2; i < max; i++) {
         if (sieveOfEratosthenes[i] === true) {
             sum += i;
         }
     }
 
-    var output = "The sum of the prime numbers below " + max + " is " + sum + ".";
-    alert(output);
+    alert("Task 'Summation of primes' https://projecteuler.net/problem=10.\n\nAnswer: " + sum);
 
     return sum;
 }
@@ -352,8 +311,6 @@ LearningTasks.findSumOfPrimesBelow = function (max) {
  * @return {number} The largest product of adjacent numbers in a sequence of the passed length.
  */
 LearningTasks.largestProductInGrid = function (grid, sequenceLength) {
-    alert("Task 'Largest product in a grid' https://projecteuler.net/problem=11.");
-
     var gridSize = Math.sqrt(grid.length);
 
     // Checks a sequence on right.
@@ -429,8 +386,7 @@ LearningTasks.largestProductInGrid = function (grid, sequenceLength) {
         largestProduct = checkResult(checkBelowRight(i));
     }
 
-    var output = "The largest product of a sequence of adjacent numbers of the length " + sequenceLength + " is " + largestProduct + ".";
-    alert(output);
+    alert("Task 'Largest product in a grid' https://projecteuler.net/problem=11.\n\nAnswer: " + largestProduct);
 
     return largestProduct;
 }
@@ -443,8 +399,6 @@ LearningTasks.largestProductInGrid = function (grid, sequenceLength) {
  * @return {number} The smallest triangular number that has a greater number of divisors than the passed.
  */
 LearningTasks.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) {
-    alert("Task 'Highly divisible triangular number' https://projecteuler.net/problem=12.");
-
     var getNumberOfDivisors = function (n) {
         var cnt = 0;
         for (var i = 1; i <= Math.sqrt(n); i++) {
@@ -461,8 +415,7 @@ LearningTasks.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) 
     var currentNumber = 1;
     for (var i = 2; ; i++) {
         if (getNumberOfDivisors(currentNumber) > numberOfDivisors) {
-            var output = "The smallest triangular number that has over than " + numberOfDivisors + " divisors is " + currentNumber + ".";
-            alert(output);
+            alert("Task 'Highly divisible triangular number' https://projecteuler.net/problem=12.\n\nAnswer: " + currentNumber);
 
             return currentNumber;
         }
@@ -480,8 +433,6 @@ LearningTasks.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) 
  * @return {string} The smallest triangular number that has a greater number of divisors than the passed.
  */
 LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
-    alert("Task 'Large sum' https://projecteuler.net/problem=13.");
-
     var countOfDigitsInNumber = sequence.length / countOfNumbers;
 
     var splitIntoChunks = function chunkSubstr(str, size) {
@@ -517,8 +468,7 @@ LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
 
     var firstTenDigits = sum.slice(0, 10);
 
-    var output = "The first ten digits of the sum of " + countOfNumbers + " numbers of " + countOfDigitsInNumber + " digits is " + firstTenDigits + ".";
-    alert(output);
+    alert("Task 'Large sum' https://projecteuler.net/problem=13.\n\nAnswer: " + firstTenDigits);
 
     return firstTenDigits;
 }
@@ -531,8 +481,6 @@ LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
  * @return {number} The number less than the passed maximum that produces the longest Collatz sequence.
  */
 LearningTasks.solveLongestCollatzSequence = function (max) {
-    alert("Task Longest Collatz sequence https://projecteuler.net/problem=14.");
-
     var getCollatzSequenceLength = function (n) {
         var collatzSequenceLength = 1;
 
@@ -559,8 +507,7 @@ LearningTasks.solveLongestCollatzSequence = function (max) {
         }
     }
 
-    var output = "The number less than " + max + " that produces the longest Collatz sequence is " + numberForLongestSequence + ".";
-    alert(output);
+    alert("Task Longest Collatz sequence https://projecteuler.net/problem=14.\n\nAnswer: " + numberForLongestSequence);
 
     return numberForLongestSequence;
 }
@@ -573,8 +520,6 @@ LearningTasks.solveLongestCollatzSequence = function (max) {
  * @return {number} The number of routes in the grid of the passed size.
  */
 LearningTasks.solveLatticePaths = function (gridSize) {
-    alert("Task 'Lattice paths' https://projecteuler.net/problem=15.");
-
     gridSize++;
 
     var grid = new Array(gridSize * gridSize).fill(0);
@@ -595,8 +540,7 @@ LearningTasks.solveLatticePaths = function (gridSize) {
         }
     }
 
-    var output = "There are " + grid[grid.length - 1] + " routes.";
-    alert(output);
+    alert("Task 'Lattice paths' https://projecteuler.net/problem=15.\n\nAnswer: " + grid[grid.length - 1]);
 
     return grid[grid.length - 1];
 }
@@ -605,24 +549,31 @@ LearningTasks.solveLatticePaths = function (gridSize) {
  * Returns the sum of the digits in 2^power.
  * https://projecteuler.net/problem=16
  *
- * @param {number} power The required power.
+ * @param {BigInt} power The required power.
  * @return {number} The sum of the digits in 2^power.
  */
 LearningTasks.solvePowerDigitSum = function (power) {
-    alert("Task 'Power digit sum' https://projecteuler.net/problem=16.");
+    var pow = function (n, p) {
+        var ret = 1n;
 
-    var n = Math.pow(2, power);
+        for (var i = 0; i < p; i++) {
+            ret *= n;
+        }
 
-    var sum = 0;
-
-    while (n > 0) {
-        var lastDigit = n % 10;
-        sum += lastDigit;
-        n = Math.floor(n / 10);
+        return ret;
     }
 
-    var output = "The sum of the digits in 2^" + power + " is " + sum + ".";
-    alert(output);
+    var n = pow(2n, power);
+
+    var sum = 0n;
+
+    while (n > 0n) {
+        var lastDigit = n % 10n;
+        sum += lastDigit;
+        n = (n - (n % 10n)) / 10n;
+    }
+
+    alert("Task 'Power digit sum' https://projecteuler.net/problem=16.\n\nAnswer: " + sum);
 
     return sum;
 }
@@ -634,8 +585,6 @@ LearningTasks.solvePowerDigitSum = function (power) {
  * @return {number} The count of letters if all numbers from 1 to 100 are written in words.
  */
 LearningTasks.solveNumberLetterCounts = function () {
-    alert("Task 'Number letter counts' https://projecteuler.net/problem=17.");
-
     var elementaryNumberToWords = function (n)
     {
         if (n >= 20 && n % 10 !== 0) {
@@ -734,8 +683,7 @@ LearningTasks.solveNumberLetterCounts = function () {
         }
     }
 
-    var output = "The count of letters in the numbers from 1 to 100 that are written in words is " + countOfLetters + ".";
-    alert(output);
+    alert("Task 'Number letter counts' https://projecteuler.net/problem=17.\n\nAnswer: " + countOfLetters);
 
     return countOfLetters;
 }
@@ -748,8 +696,6 @@ LearningTasks.solveNumberLetterCounts = function () {
  * @return {number} The  path of the maximum cost from the top of the given triangle to the bottom.
  */
 LearningTasks.solveMaximumPathSum = function (triangle) {
-    alert("Task 'Maximum path sum I' https://projecteuler.net/problem=18.");
-
     var numberOfRows = 0;
 
     var elementCounter = 0;
@@ -787,8 +733,7 @@ LearningTasks.solveMaximumPathSum = function (triangle) {
         // console.log("");
     }
 
-    var output = "The maximum total from top to bottom in the given triangle is " + matrix[0] + ".";
-    alert(output);
+    alert("Task 'Maximum path sum I' https://projecteuler.net/problem=18.\n\nAnswer: " + matrix[0]);
 
     return matrix[0];
 }
@@ -802,8 +747,6 @@ LearningTasks.solveMaximumPathSum = function (triangle) {
  * @return {number} The count on Sundays that fell on the first of the month during the passed years.
  */
 LearningTasks.countSundays = function (startYear, endYear) {
-    alert("Task 'Counting Sundays' https://projecteuler.net/problem=19.");
-
     var isYearLeap = function (year) {
         if ((year % 400 !== 0 && year % 100 === 0) || (year % 4 !== 0)) {
             return false;
@@ -850,8 +793,7 @@ LearningTasks.countSundays = function (startYear, endYear) {
         }
     }
 
-    var output = "The count of Sundays that fell on the first of the month from " + startYear + " to " + endYear + " is " + countOfSundays + ".";
-    alert(output);
+    alert("Task 'Counting Sundays' https://projecteuler.net/problem=19.\n\nAnswer: " + countOfSundays);
 
     return countOfSundays;
 }
@@ -864,8 +806,6 @@ LearningTasks.countSundays = function (startYear, endYear) {
  * @returns {BigInt} The sum of digits in the factorial of the passed number.
  */
 LearningTasks.calculateFactorialDigitSum = function (n) {
-    alert("Task 'Factorial digit sum' https://projecteuler.net/problem=20.");
-
     var calculateFactorial = function (_n) {
         var factorial = 1n;
         while (_n > 0n) {
@@ -886,8 +826,7 @@ LearningTasks.calculateFactorialDigitSum = function (n) {
         factorial = (factorial - (factorial % 10n)) / 10n;
     }
 
-    var output = "The sum of digits in " + n + "! is " + sumOfDigits + ".";
-    alert(output);
+    alert("Task 'Factorial digit sum' https://projecteuler.net/problem=20.\n\nAnswer: " + sumOfDigits);
 
     return sumOfDigits;
 }
