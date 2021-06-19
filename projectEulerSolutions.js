@@ -25,16 +25,6 @@ ProjectEulerSolutions.calculateSumOfMultiplesUpTo = function (max, dividers) {
         }
     }
 
-    var output = "The sum of multiples of ";
-    for (var i = 0; i < dividers.length; i++) {
-        output += dividers[i];
-        if (i !== dividers.length - 1) {
-            output += ", ";
-        } else {
-            output += " ";
-        }
-    }
-
     alert("Task 'Multiples of 3 and 5' https://projecteuler.net/problem=1.\n\nAnswer: " + sum);
 
     return sum;
@@ -231,7 +221,6 @@ ProjectEulerSolutions.findLargestProductInSeries = function (series, sequenceLen
         largestProduct = Math.max(currentProduct, largestProduct);
     }
 
-    var output = "The largest product is " + largestProduct + ".";
     alert("Task 'Largest product in a series' https://projecteuler.net/problem=8.\n\nAnswer: " + largestProduct);
 
     return largestProduct;
