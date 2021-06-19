@@ -592,6 +592,11 @@ LearningTasks.solvePowerDigitSum = function (power) {
     return sum;
 }
 
+/**
+ * Returns the count of letters if all numbers from 1 to 100 are written in words.
+ *
+ * @return {number} The count of letters if all numbers from 1 to 100 are written in words.
+ */
 LearningTasks.solveNumberLetterCounts = function () {
     var elementaryNumberToWords = function (n)
     {
@@ -695,6 +700,56 @@ LearningTasks.solveNumberLetterCounts = function () {
     alert(output);
 
     return countOfLetters;
+}
+
+/**
+ * Returns the path of the maximum cost from the top of the given triangle to the bottom.
+ *
+ * @param {Array<number>} triangle A triangle.
+ * @return {number} The  path of the maximum cost from the top of the given triangle to the bottom.
+ */
+LearningTasks.solveMaximumPathSum = function (triangle) {
+    var numberOfRows = 0;
+
+    var elementCounter = 0;
+    for (var row = 1; elementCounter !== triangle.length; row++, numberOfRows++) {
+        var numOfElementsAtRow = row;
+        elementCounter += numOfElementsAtRow;
+    }
+
+    var matrix = new Int16Array(numberOfRows * numberOfRows).fill(0);
+    for (var i = 0, k = 0; i < numberOfRows; i++) {
+        for (var j = 0; j < i + 1; j++, k++) {
+            matrix[i * numberOfRows + j] = triangle[k];
+        }
+    }
+
+    var printMatrix = function (numberOfRowsToPrint) {
+        for (var i = 0; i < numberOfRowsToPrint; i++) {
+            var row = "";
+            for (var j = 0; j < numberOfRows; j++) {
+                var element = matrix[i * numberOfRows + j];
+                row += (element < 10 ? "0" : "") + element + " ";
+            }
+            console.log(row);
+        }
+    }
+
+    // printMatrix(numberOfRows);
+    // console.log("\n\n");
+
+    for (var i = numberOfRows - 2; i >= 0; i--) {
+        for (var j = 0; j <= i; j++) {
+            matrix[i * numberOfRows + j] += Math.max(matrix[(i + 1) * numberOfRows + j], matrix[(i + 1) * numberOfRows + (j + 1)]);
+        }
+        // printMatrix(i + 1);
+        // console.log("");
+    }
+
+    var output = "The maximum total from top to bottom in the given triangle is " + matrix[0] + ".";
+    alert(output);
+
+    return matrix[0];
 }
 
 //LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
@@ -857,4 +912,20 @@ LearningTasks.solveNumberLetterCounts = function () {
 //LearningTasks.solveLongestCollatzSequence(1000000);
 //LearningTasks.solveLatticePaths(20);
 //LearningTasks.solvePowerDigitSum(1000);
-LearningTasks.solveNumberLetterCounts();
+//LearningTasks.solveNumberLetterCounts();
+LearningTasks.solveMaximumPathSum([
+    75,
+    95, 64,
+    17, 47, 82,
+    18, 35, 87, 10,
+    20, 4, 82, 47, 65,
+    19, 1, 23, 75, 3, 34,
+    88, 2, 77, 73, 7, 63, 67,
+    99, 65, 4, 28, 6, 16, 70, 92,
+    41, 41, 26, 56, 83, 40, 80, 70, 33,
+    41, 48, 72, 33, 47, 32, 37, 16, 94, 29,
+    53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14,
+    70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57,
+    91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48,
+    63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
+    4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]);
