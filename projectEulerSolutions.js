@@ -566,67 +566,18 @@ ProjectEulerSolutions.solvePowerDigitSum = function (power) {
 ProjectEulerSolutions.solveNumberLetterCounts = function () {
     var elementaryNumberToWords = function (n)
     {
+        var numbersToWords = {
+            0: "", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+            6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
+            11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen",
+            15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen",
+            19: "nineteen", 20: "twenty", 30: "thirty", 40: "forty",
+            50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety" };
+
         if (n >= 20 && n % 10 !== 0) {
             return elementaryNumberToWords(n - (n % 10)) + " " + elementaryNumberToWords(n % 10);
         } else {
-            switch (n) {
-                case 0:
-                    return "";
-                case 1:
-                    return "one";
-                case 2:
-                    return "two";
-                case 3:
-                    return "three";
-                case 4:
-                    return "four";
-                case 5:
-                    return "five";
-                case 6:
-                    return "six";
-                case 7:
-                    return "seven";
-                case 8:
-                    return "eight";
-                case 9:
-                    return "nine";
-                case 10:
-                    return "ten";
-                case 11:
-                    return "eleven";
-                case 12:
-                    return "twelve";
-                case 13:
-                    return "thirteen";
-                case 14:
-                    return "fourteen";
-                case 15:
-                    return "fifteen";
-                case 16:
-                    return "sixteen";
-                case 17:
-                    return "seventeen";
-                case 18:
-                    return "eighteen";
-                case 19:
-                    return "nineteen";
-                case 20:
-                    return "twenty";
-                case 30:
-                    return "thirty";
-                case 40:
-                    return "forty";
-                case 50:
-                    return "fifty";
-                case 60:
-                    return "sixty";
-                case 70:
-                    return "seventy";
-                case 80:
-                    return "eighty";
-                case 90:
-                    return "ninety";
-            }
+            return numbersToWords[n];
         }
     }
 
