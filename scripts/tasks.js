@@ -989,7 +989,7 @@ LearningTasks.solveLargeSum(
     100);
 LearningTasks.solveLongestCollatzSequence(1000000);
 LearningTasks.solveLatticePaths(20);
-LearningTasks.solvePowerDigitSum(1000);
+LearningTasks.solvePowerDigitSum(1000n);
 LearningTasks.solveNumberLetterCounts();
 LearningTasks.solveMaximumPathSum([
     75,
