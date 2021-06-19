@@ -752,6 +752,66 @@ LearningTasks.solveMaximumPathSum = function (triangle) {
     return matrix[0];
 }
 
+/**
+ * Returns the count on Sundays that fell on the first of the month during the passed years.
+ *
+ * @param {number} startYear The start year for counting.
+ * @param {number} endYear The end year for counting.
+ * @return {number} The count on Sundays that fell on the first of the month during the passed years.
+ */
+LearningTasks.countSundays = function (startYear, endYear) {
+    var isYearLeap = function (year) {
+        if ((year % 400 !== 0 && year % 100 === 0) || (year % 4 !== 0)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    var countOfSundays = 0;
+    var currentDay = 1;
+
+    for (var y = startYear; y <= endYear; y++) {
+        //console.log("Year: " + y + ", leap: " + isYearLeap(y));
+        for (var m = 1; m <= 12; m++) {
+            var numOfDays = 0;
+
+            switch (m) {
+                case 2:
+                    if (isYearLeap(y))
+                        numOfDays = 29;
+                    else
+                        numOfDays = 28;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    numOfDays = 30;
+                    break;
+                default:
+                    numOfDays = 31;
+                    break;
+            }
+
+            //console.log("Month: " + m + ", year: " + y + ", number of days: " + numOfDays);
+
+            for (var d = 1; d <= numOfDays; d++, currentDay = (currentDay + 1 > 7 ? 1 : currentDay + 1)) {
+                // currentDay was incremented. So, we have to check if it is Monday now. If so,
+                // increase the counter for Sundays.
+                if (d === 1 && currentDay === 1) {
+                    countOfSundays++;
+                }
+            }
+        }
+    }
+
+    var output = "The count of Sundays that fell on the first of the month from " + startYear + " to " + endYear + " is " + countOfSundays + ".";
+    console.log(output);
+
+    return countOfSundays;
+}
+
 //LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
 //LearningTasks.findLargestPrimeFactorOfNumber(600851475143);
@@ -913,19 +973,20 @@ LearningTasks.solveMaximumPathSum = function (triangle) {
 //LearningTasks.solveLatticePaths(20);
 //LearningTasks.solvePowerDigitSum(1000);
 //LearningTasks.solveNumberLetterCounts();
-LearningTasks.solveMaximumPathSum([
-    75,
-    95, 64,
-    17, 47, 82,
-    18, 35, 87, 10,
-    20, 4, 82, 47, 65,
-    19, 1, 23, 75, 3, 34,
-    88, 2, 77, 73, 7, 63, 67,
-    99, 65, 4, 28, 6, 16, 70, 92,
-    41, 41, 26, 56, 83, 40, 80, 70, 33,
-    41, 48, 72, 33, 47, 32, 37, 16, 94, 29,
-    53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14,
-    70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57,
-    91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48,
-    63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
-    4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]);
+// LearningTasks.solveMaximumPathSum([
+//     75,
+//     95, 64,
+//     17, 47, 82,
+//     18, 35, 87, 10,
+//     20, 4, 82, 47, 65,
+//     19, 1, 23, 75, 3, 34,
+//     88, 2, 77, 73, 7, 63, 67,
+//     99, 65, 4, 28, 6, 16, 70, 92,
+//     41, 41, 26, 56, 83, 40, 80, 70, 33,
+//     41, 48, 72, 33, 47, 32, 37, 16, 94, 29,
+//     53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14,
+//     70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57,
+//     91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48,
+//     63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
+//     4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]);
+LearningTasks.countSundays(1901, 2000);
