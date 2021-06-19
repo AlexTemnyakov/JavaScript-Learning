@@ -812,6 +812,39 @@ LearningTasks.countSundays = function (startYear, endYear) {
     return countOfSundays;
 }
 
+/**
+ * Returns the sum of digits in the factorial of the passed number.
+ *
+ * @param {BigInt} n The number to calculate the sum of digits in the factorial.
+ * @returns {BigInt} The sum of digits in the factorial of the passed number.
+ */
+LearningTasks.calculateFactorialDigitSum = function (n) {
+    var calculateFactorial = function (_n) {
+        var factorial = 1n;
+        while (_n > 0n) {
+            factorial *= _n;
+            _n--;
+        }
+        return factorial;
+    }
+
+    var factorial = calculateFactorial(n);
+
+    //console.log(factorial);
+
+    var sumOfDigits = 0n;
+
+    while (factorial > 0n) {
+        sumOfDigits += factorial % 10n;
+        factorial = (factorial - (factorial % 10n)) / 10n;
+    }
+
+    var output = "The sum of digits in " + n + "! is " + sumOfDigits + ".";
+    alert(output);
+
+    return sumOfDigits;
+}
+
 //LearningTasks.calculateSumOfMultiplesUpTo(1000, [3, 5]);
 //LearningTasks.calculateSumOfEvenFibonacciNumbersUpTo(4000000);
 //LearningTasks.findLargestPrimeFactorOfNumber(600851475143);
@@ -989,4 +1022,5 @@ LearningTasks.countSundays = function (startYear, endYear) {
 //     91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48,
 //     63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
 //     4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]);
-LearningTasks.countSundays(1901, 2000);
+//LearningTasks.countSundays(1901, 2000);
+LearningTasks.calculateFactorialDigitSum(100n);
