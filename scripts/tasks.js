@@ -275,7 +275,7 @@ LearningTasks.findSpecialPythagoreanTriplet = function (sum) {
  * @return {number} The sum of the prime numbers below the passed maximum.
  */
 LearningTasks.findSumOfPrimesBelow = function (max) {
-    var getSieveOfEratosthenesUpTo = function (max) {
+    var sieveOfEratosthenes = function (max) {
         var sieveOfEratosthenes = new Array(max).fill(true);
 
         for (var i = 2; i < max; i++) {
@@ -287,10 +287,9 @@ LearningTasks.findSumOfPrimesBelow = function (max) {
         }
 
         return sieveOfEratosthenes
-    }
+    } (max);
 
     var sum = 0;
-    var sieveOfEratosthenes = getSieveOfEratosthenesUpTo(max);
     for (var i = 2; i < max; i++) {
         if (sieveOfEratosthenes[i] === true) {
             sum += i;
@@ -435,7 +434,7 @@ LearningTasks.findHighlyDivisibleTriangularNumber = function (numberOfDivisors) 
 LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
     var countOfDigitsInNumber = sequence.length / countOfNumbers;
 
-    var splitIntoChunks = function chunkSubstr(str, size) {
+    var chunks = function (str, size) {
         const numChunks = Math.ceil(str.length / size)
         const chunks = new Array(numChunks)
 
@@ -444,9 +443,7 @@ LearningTasks.solveLargeSum = function (sequence, countOfNumbers) {
         }
 
         return chunks
-    }
-
-    var chunks = splitIntoChunks(sequence, countOfDigitsInNumber);
+    } (sequence, countOfDigitsInNumber);
 
     var sum = "";
 
@@ -553,7 +550,8 @@ LearningTasks.solveLatticePaths = function (gridSize) {
  * @return {number} The sum of the digits in 2^power.
  */
 LearningTasks.solvePowerDigitSum = function (power) {
-    var pow = function (n, p) {
+    // Like Math.pow(...).
+    var n = function (n, p) {
         var ret = 1n;
 
         for (var i = 0; i < p; i++) {
@@ -561,9 +559,7 @@ LearningTasks.solvePowerDigitSum = function (power) {
         }
 
         return ret;
-    }
-
-    var n = pow(2n, power);
+    } (2n, power);
 
     var sum = 0n;
 
@@ -806,16 +802,14 @@ LearningTasks.countSundays = function (startYear, endYear) {
  * @returns {BigInt} The sum of digits in the factorial of the passed number.
  */
 LearningTasks.calculateFactorialDigitSum = function (n) {
-    var calculateFactorial = function (_n) {
+    var factorial = function (n) {
         var factorial = 1n;
-        while (_n > 0n) {
-            factorial *= _n;
-            _n--;
+        while (n > 0n) {
+            factorial *= n;
+            n--;
         }
         return factorial;
-    }
-
-    var factorial = calculateFactorial(n);
+    } (n);
 
     //console.log(factorial);
 
