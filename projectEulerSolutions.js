@@ -17,7 +17,7 @@ ProjectEulerSolutions.calculateSumOfMultiplesUpTo = function (max, dividers) {
 
     for (var i = 0; i < max; i++) {
         for (var j = 0; j < dividers.length; j++) {
-            if (i % dividers[j] === 0) {
+            if (i % dividers[j] == 0) {
                 sum += i;
                 // Break, because we don't want to count the current number again.
                 break;
@@ -48,7 +48,7 @@ ProjectEulerSolutions.calculateSumOfEvenFibonacciNumbersUpTo = function (max) {
         f1 = f2;
         f2 = currentNumber;
         //alert(currentNumber)
-        if (currentNumber % 2 === 0) {
+        if (currentNumber % 2 == 0) {
             sum += currentNumber;
         }
     }
@@ -69,7 +69,7 @@ ProjectEulerSolutions.findLargestPrimeFactorOfNumber = function (number) {
     var factor = 2;
 
     while (number > 1) {
-        if (number % factor === 0){
+        if (number % factor == 0){
             number /= factor;
         } else {
             factor++;
@@ -92,7 +92,7 @@ ProjectEulerSolutions.findLargestPalindromeProduct = function () {
         var numberS = number.toString();
 
         for (var i = 0; i < numberS.length / 2; i++) {
-            if (numberS[i] !== numberS[numberS.length - 1 - i]) {
+            if (numberS[i] != numberS[numberS.length - 1 - i]) {
                 return false;
             }
         }
@@ -128,7 +128,7 @@ ProjectEulerSolutions.findSmallestMultiple = function (rightBoundOfRange) {
     while (true) {
         var isDividableByAllNumbers = true;
         for (var i = 1; i <= rightBoundOfRange; i++) {
-            if (number % i !== 0) {
+            if (number % i != 0) {
                 isDividableByAllNumbers = false;
                 break;
             }
@@ -175,12 +175,12 @@ ProjectEulerSolutions.findDifferenceOfSquareOfSumAndSumOfSquares = function (max
  */
 ProjectEulerSolutions.findPrimeNumberAtPosition = function (position) {
     var isPrime = function (number) {
-        if (number === 0 || number === 1)
+        if (number == 0 || number == 1)
             return false;
 
         var prime = true;
         for (var j = 2; j < number - 1; j++) {
-            if ((number % j) === 0) {
+            if ((number % j) == 0) {
                 prime = false;
                 break;
             }
@@ -193,7 +193,7 @@ ProjectEulerSolutions.findPrimeNumberAtPosition = function (position) {
     for (var i = 2; ; i++) {
         if (isPrime(i)) {
             counter++;
-            if (counter === position) {
+            if (counter == position) {
                 alert("Task '10001st prime' https://projecteuler.net/problem=7.\nIt will take some time to solve.\n\nAnswer: " + i);
 
                 return i;
@@ -227,7 +227,7 @@ ProjectEulerSolutions.findLargestProductInSeries = function (series, sequenceLen
 }
 
 /**
- * Finds the Pythagorean triangles the sides of which matches a + b + c === sum.
+ * Finds the Pythagorean triangles the sides of which matches a + b + c == sum.
  * https://projecteuler.net/problem=9
  *
  * @param {number} sum The required sum of the sides of the triangles.
@@ -238,9 +238,9 @@ ProjectEulerSolutions.findSpecialPythagoreanTriplet = function (sum) {
         for (var b = a + 1; b <= (sum - a - 1); b++) {
             for (var c = b + 1; c <= (sum - a - b); c++) {
                 var isPythagoreanTriangle = function() {
-                    return ((a * a) + (b * b)) === (c * c);
+                    return ((a * a) + (b * b)) == (c * c);
                 } ();
-                if (isPythagoreanTriangle && (a + b + c) === sum) {
+                if (isPythagoreanTriangle && (a + b + c) == sum) {
                     alert("Task 'Special Pythagorean triplet' https://projecteuler.net/problem=9.\n\nAnswer: " + (a * b * c));
 
                     return a * b * c;
@@ -262,7 +262,7 @@ ProjectEulerSolutions.findSumOfPrimesBelow = function (max) {
         var sieveOfEratosthenes = new Array(max).fill(true);
 
         for (var i = 2; i < max; i++) {
-            if (sieveOfEratosthenes[i] === true) {
+            if (sieveOfEratosthenes[i] == true) {
                 for (var f = 0, j = i * i + f * i; j < max; f++, j = i * i + f * i) {
                     sieveOfEratosthenes[j] = false
                 }
@@ -274,7 +274,7 @@ ProjectEulerSolutions.findSumOfPrimesBelow = function (max) {
 
     var sum = 0;
     for (var i = 2; i < max; i++) {
-        if (sieveOfEratosthenes[i] === true) {
+        if (sieveOfEratosthenes[i] == true) {
             sum += i;
         }
     }
@@ -384,8 +384,8 @@ ProjectEulerSolutions.findHighlyDivisibleTriangularNumber = function (numberOfDi
     var getNumberOfDivisors = function (n) {
         var cnt = 0;
         for (var i = 1; i <= Math.sqrt(n); i++) {
-            if (n % i === 0) {
-                if (n / i === i)
+            if (n % i == 0) {
+                if (n / i == i)
                     cnt++;
                 else
                     cnt += 2;
@@ -464,9 +464,9 @@ ProjectEulerSolutions.solveLongestCollatzSequence = function (max) {
     var getCollatzSequenceLength = function (n) {
         var collatzSequenceLength = 1;
 
-        while (n !== 1) {
+        while (n != 1) {
             collatzSequenceLength++;
-            if (n % 2 === 0) {
+            if (n % 2 == 0) {
                 n /= 2;
             } else {
                 n = 3 * n + 1;
@@ -574,7 +574,7 @@ ProjectEulerSolutions.solveNumberLetterCounts = function () {
             19: "nineteen", 20: "twenty", 30: "thirty", 40: "forty",
             50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety" };
 
-        if (n >= 20 && n % 10 !== 0) {
+        if (n >= 20 && n % 10 != 0) {
             return elementaryNumberToWords(n - (n % 10)) + " " + elementaryNumberToWords(n % 10);
         } else {
             return numbersToWords[n];
@@ -588,13 +588,13 @@ ProjectEulerSolutions.solveNumberLetterCounts = function () {
         var i = 0;
 
         i = Math.floor((n / 100) % 10);
-        if (i !== 0) {
+        if (i != 0) {
             out += elementaryNumberToWords(i) + " ";
             out += "hundred ";
         }
 
         i = Math.floor(n % 100);
-        if (out !== "" && i !== 0)
+        if (out != "" && i != 0)
             out += "and ";
         out += elementaryNumberToWords(i);
 
@@ -607,7 +607,7 @@ ProjectEulerSolutions.solveNumberLetterCounts = function () {
         var numInWords = numberToWords(i);
         //console.log(i + " " + numInWords);
         for (var j = 0; j < numInWords.length; j++) {
-            if (numInWords[j] !== " ") {
+            if (numInWords[j] != " ") {
                 countOfLetters++;
             }
         }
@@ -629,7 +629,7 @@ ProjectEulerSolutions.solveMaximumPathSum = function (triangle) {
     var numberOfRows = 0;
 
     var elementCounter = 0;
-    for (var row = 1; elementCounter !== triangle.length; row++, numberOfRows++) {
+    for (var row = 1; elementCounter != triangle.length; row++, numberOfRows++) {
         var numOfElementsAtRow = row;
         elementCounter += numOfElementsAtRow;
     }
@@ -678,7 +678,7 @@ ProjectEulerSolutions.solveMaximumPathSum = function (triangle) {
  */
 ProjectEulerSolutions.countSundays = function (startYear, endYear) {
     var isYearLeap = function (year) {
-        if ((year % 400 !== 0 && year % 100 === 0) || (year % 4 !== 0)) {
+        if ((year % 400 != 0 && year % 100 == 0) || (year % 4 != 0)) {
             return false;
         } else {
             return true;
@@ -716,7 +716,7 @@ ProjectEulerSolutions.countSundays = function (startYear, endYear) {
             for (var d = 1; d <= numOfDays; d++, currentDay = (currentDay + 1 > 7 ? 1 : currentDay + 1)) {
                 // currentDay was incremented. So, we have to check if it is Monday now. If so,
                 // increase the counter for Sundays.
-                if (d === 1 && currentDay === 1) {
+                if (d == 1 && currentDay == 1) {
                     countOfSundays++;
                 }
             }
