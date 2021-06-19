@@ -92,36 +92,30 @@ LearningTasks.findLargestPrimeFactorOfNumber = function (number) {
 }
 
 /**
- * Checks if the passed number is a palindrome.
- *
- * @param {number} number The number you want to check if it is a palindrome.
- * @return {boolean} True if the passed number is a palindrome. Otherwise, false.
- */
-LearningTasks.isPalindrome = function (number) {
-    var numberS = number.toString();
-
-    for (var i = 0; i < numberS.length / 2; i++) {
-        if (numberS[i] !== numberS[numberS.length - 1 - i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-/**
  * Finds the largest palindrome products of two 3-digit numbers.
  * https://projecteuler.net/problem=4
  *
  * @return {number} The largest palindrome product of two 3-digit numbers.
  */
 LearningTasks.findLargestPalindromeProduct = function () {
+    var isPalindrome = function (number) {
+        var numberS = number.toString();
+
+        for (var i = 0; i < numberS.length / 2; i++) {
+            if (numberS[i] !== numberS[numberS.length - 1 - i]) {
+                return false;
+            }
+        }
+
+        return true;
+    };
+
     var largestProduct = 0;
 
     for (var num1 = 100; num1 < 1000; num1++) {
         for (var num2 = num1; num2 < 1000; num2++) {
             var currentProduct = num1 * num2
-            if (currentProduct > largestProduct && LearningTasks.isPalindrome(num1 * num2)) {
+            if (currentProduct > largestProduct && isPalindrome(num1 * num2)) {
                 largestProduct = currentProduct;
             }
         }
